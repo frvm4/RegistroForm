@@ -33,7 +33,7 @@ namespace RegistroForm
                 $"Apellidos: {apellidos}\r\n" +
                 $"Edad: {edad}\r\n" +
                 $"Teléfono: {telefono}\r\n" +
-                $"Genero: {genero}\r\n";
+                $"Generooo: {genero}\r\n";
 
             string rutaArchivo = "D:\\aaa_UNACH\\programación\\txt\\Registro";
             bool archivoExiste = File.Exists(rutaArchivo);
