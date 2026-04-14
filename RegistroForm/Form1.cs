@@ -16,7 +16,7 @@ namespace RegistroForm
     public partial class Form1 : Form
     {
         string SQLConection = "Server=localhost; Port=3306; " +
-            "Database=Formulario; Uid=root; Pwd=root";
+            "Database=Formulario; Uid=root; Pwd=4444";
         public Form1()
         {
             InitializeComponent();
@@ -33,19 +33,19 @@ namespace RegistroForm
             using (MySqlConnection conectar = new MySqlConnection(SQLConection))
             {
                 conectar.Open();
-                string insertQuery = "INSERT INTO registros (nombres, " +
-                    "apellidos, telefono, estatura, edad, genero) " +
-                    "VALUES (@nombres, @apellidos,@telefono,@estatura," +
-                    "@edad, @genero)";
+                string insertQuery = "INSERT INTO registro (nombre, " +
+                    "apellido, edad, estatura, telefono, genero) " +
+                    "VALUES (@nombre, @apellido,@edad,@estatura," +
+                    "@telefono, @genero)";
                 using (MySqlCommand cmd = new MySqlCommand(insertQuery, conectar))
                 {
-                    cmd.Parameters.AddWithValue("@nombres", nombre);
-                    cmd.Parameters.AddWithValue("@apellidos",
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@apellido",
                     apellidos);
-                    cmd.Parameters.AddWithValue("@telefono", telefono);
-                    cmd.Parameters.AddWithValue("@estatura", estatura);
                     cmd.Parameters.AddWithValue("@edad", edad);
-                    cmd.Parameters.AddWithValue(" @genero", genero);
+                    cmd.Parameters.AddWithValue("@estatura", estatura);
+                    cmd.Parameters.AddWithValue("@telefono", telefono);
+                    cmd.Parameters.AddWithValue("@genero", genero);
                     cmd.ExecuteNonQuery();
                 }
                 conectar.Close();
